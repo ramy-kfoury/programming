@@ -1,5 +1,3 @@
-//: Playground - noun: a place where people can play
-
 import UIKit
 
 var intArray = [1, 2, 3, 4, 1, 2, 3]
@@ -17,7 +15,7 @@ func findUncoupledInteger(inArray array: [Int]) -> Int? {
     return set.first
 }
 
-func amazingFindUncoupledInteger(inArray array: [Int]) -> Int {
+func findUncoupledIntegerByXOR(inArray array: [Int]) -> Int {
     var result = 0
     for i in 0..<count(array) {
         result ^= array[i]
@@ -25,5 +23,10 @@ func amazingFindUncoupledInteger(inArray array: [Int]) -> Int {
     return result
 }
 
-let culprit = findUncoupledInteger(inArray: intArray)
-let culprit2 = amazingFindUncoupledInteger(inArray: intArray)
+func findUncoupledIntegerFunctionally(inArray array: [Int]) -> Int {
+    return array.reduce(0) { $0 ^ $1 }
+}
+
+let uncoupled1 = findUncoupledInteger(inArray: intArray)
+let uncoupled2 = findUncoupledIntegerByXOR(inArray: intArray)
+let uncoupled3 = findUncoupledIntegerFunctionally(inArray: intArray)
